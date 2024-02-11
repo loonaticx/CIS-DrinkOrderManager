@@ -4,8 +4,6 @@ Generates arbitrary drinks
 import random
 from dataclasses import dataclass
 
-from base.Drink import Drink
-
 from DatabaseManager import *
 
 # Random colors
@@ -51,7 +49,27 @@ drinkNames = [
     "Sangria",
     "Caipirinha",
     "Hot Toddy",
-    "Pisco Sour"
+    "Pisco Sour",
+    "Coca-Cola",
+    "Pepsi",
+    "Sprite",
+    "Dr Pepper",
+    "Mountain Dew",
+    "Fanta",
+    "7UP",
+    "Root Beer",
+    "Ginger Ale",
+    "Orange Crush",
+    "Cream Soda",
+    "Sunkist",
+    "Barq's",
+    "Canada Dry",
+    "A&W",
+    "Schweppes",
+    "Mug Root Beer",
+    "Crush",
+    "Sierra Mist",
+    "Water",
 ]
 
 
@@ -141,7 +159,7 @@ class DrinkGenerator:
 
 if __name__ == "__main__":
     """
-    Driver code; when ran, will inject arbitrary drink entries into the database.
+    Driver code; when ran, will insert arbitrary drink entries into the database.
     """
     drinksAmt = 10
 
