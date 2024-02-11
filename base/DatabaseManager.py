@@ -10,7 +10,7 @@ from sqlalchemy import create_engine, update
 from sqlalchemy.engine import URL
 from sqlalchemy.sql import text
 
-import Config
+from config import Config
 from base.ConnectionType import ConnectionType
 from base.Drink import Drink
 import sys

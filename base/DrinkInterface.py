@@ -1,6 +1,6 @@
 import sys
 
-import DatabaseManager as dbm
+from base import DatabaseManager as dbm
 
 
 class DrinkMenu:

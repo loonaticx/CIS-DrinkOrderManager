@@ -4,7 +4,7 @@ Generates arbitrary drinks
 import random
 from dataclasses import dataclass
 
-from DatabaseManager import *
+from base.DatabaseManager import *
 
 # Random colors
 drinkColors = [
