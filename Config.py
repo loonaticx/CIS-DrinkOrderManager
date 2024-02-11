@@ -1,5 +1,7 @@
 from base.ConnectionType import ConnectionType
 
+REMOTE_USERNAME = "admin"
+REMOTE_PASSWORD = "***REMOVED***"
 REMOTE_HOST = "***REMOVED***"
 
 SCHEMA = "DrinkDatabase"
