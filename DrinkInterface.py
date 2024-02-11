@@ -61,7 +61,7 @@ class DrinkMenu:
         print("-" * 50)
         print("- - - Menu - - -")
         for d in self._allDrinks:
-            print("{} | {} | ${}".format(d.id, d.name, d.price))
+            print("{} | {} | ${:,.2f}".format(d.id, d.name, d.price))
         print("-" * 50)
 
     def findDrink(self, drink_lookup):
@@ -76,7 +76,7 @@ class DrinkMenu:
             print("Bartender: Sorry! I couldn't find a drink with that name. Let's try it again...")
             return
         print(f"Bartender: Alright, here's what I got for ya:")
-        print("ID: {} | Name: {} | Price: ${} | Color: {} | Description: {}".format(
+        print("ID: {} | Name: {} | Price: ${:,.2f} | Color: {} | Description: {}".format(
             foundDrink.id, foundDrink.name, foundDrink.price, foundDrink.color, foundDrink.description
         ))
 
@@ -135,7 +135,7 @@ class DrinkMenu:
                     totalCost = 0.0
                     totalAmt = 0
                     for drinkOrder in sorted(orderedDrinks, key = lambda drinkOrder: drinkOrder.name):
-                        print("Drink Name: {} | Price: ${}".format(
+                        print("Drink Name: {} | Price: ${:,.2f}".format(
                             drinkOrder.name, drinkOrder.price
                         ))
                         totalCost += float(drinkOrder.price)
@@ -151,9 +151,6 @@ class DrinkMenu:
                             sys.exit()
                         else:
                             repeatPrompt = input("Bartender: I didn't quite get that, just give me a yes or no.\nYou: ")
-
-                # Reset current order
-                currentOrder = []
 
             # Do they want to get information about a drink.?
             elif any(word in option for word in self.browseTerms):
@@ -177,4 +174,3 @@ class DrinkMenu:
 
 if __name__ == "__main__":
     di = DrinkMenu()
-    # di.showDrinks()
