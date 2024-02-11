@@ -1,3 +1,9 @@
+"""
+DatabaseManager is the kickstart engine for connecting and working with the database.
+
+You shouldn't need to import it more than once since it serves as the driver code. (Be mindful where it's imported!)
+"""
+
 import sqlalchemy as db
 
 from sqlalchemy import create_engine, update
@@ -40,13 +46,19 @@ from sqlalchemy import Column, Integer, String, Float
 
 
 class DrinkDBEntry(Base):
+    """
+    Skeleton for a db entry in the "drinks" table.
+
+    Will be added into the database upon init
+    """
+
     __tablename__ = "drinks"
 
     id = Column(Integer, primary_key = True, autoincrement = True)
-    name = Column(Integer)
+    name = Column(String(64))
     price = Column(Float)
-    color = Column(String, nullable = True)
-    description = Column(String, nullable = True, default = "No description.")
+    color = Column(String(32), nullable = True)
+    description = Column(String(128), nullable = True, default = "No description.")
 
     def __init__(self, drink: Drink):
         self.drink = drink
@@ -66,22 +78,11 @@ class DrinkDBEntry(Base):
     def _generate_db_entry(self):
         session.add(self)
         session.commit()
-        # query = f"UPDATE {self.__tablename__} SET description='gaming' WHERE name='{self.drink.name}'"
-        # session.execute(text(query))
-        # session.commit()
-
-    def update(self):
-        drink = self.drink
-        query = f"UPDATE {self.__tablename__} SET description='gaming' WHERE name='{drink.name}'"
-        session.execute(text(query))
-        session.commit()
 
 
+# Creates the "drinks" table if not done so already
 Base.metadata.create_all(engine)
 
 if __name__ == "__main__":
-
+    # Test adding entries into the db
     db = DrinkDBEntry(Drink("Test drin2k", 1.23, "No color"))
-    session.add(db)
-    session.commit()
-    db.update()
